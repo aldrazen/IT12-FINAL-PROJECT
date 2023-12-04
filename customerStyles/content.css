@@ -1,0 +1,27 @@
+body{
+  background-color: #F4F3F0;
+}
+
+h1{
+  font-family: 'Anton', sans-serif;
+  color: rgb(177, 176, 176);
+}
+.fs-2{
+  font-family: 'Baskervville', serif;
+  color: rgb(177, 176, 176);
+}
+.shop-now{
+  border: 2px solid gray;
+  font-size: 20px;
+  font-family: 'Baskervville', serif;
+  color: rgb(177, 176, 176);
+}
+.shop-now:hover{
+  background-color: #96C422;
+  color: white;
+}
+.description{
+  font-family: 'Anton', sans-serif;
+  color: rgb(177, 176, 176);
+  font-size: 25px;
+}

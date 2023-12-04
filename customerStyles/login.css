@@ -1,0 +1,94 @@
+.background-img {
+  background-image: url('../images/signupCover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.logo {
+  height: 150px;
+}
+
+label {
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  color: white;
+}
+
+.form-control {
+
+  font-weight: bold;
+  color: white;
+}
+
+.form-control:focus {
+
+  font-weight: bold;
+  color: white;
+  box-shadow: none;
+  border-color: #96C422;
+}
+
+h3 {
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  color: white;
+}
+
+.signup {
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  background-color: white;
+}
+
+.signup:hover {
+  background-color: #96C422;
+  color: white;
+}
+
+.signup:focus {
+  background-color: #506814;
+  color: white;
+}
+form{
+  min-width: 25%;
+}
+.login{
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+.login:hover{
+  background-color: #96C422;
+ 
+}
+.login:focus{
+  background-color: #506814;
+}
+.goBack{
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  color: #96C422;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.goBack:hover{
+  background-color: #96C422;
+  color: black;
+}
+.new{
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  color: rgb(194, 194, 194);
+}
+.toSignUp{
+  text-decoration: none;
+  color: #96C422;
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+}
