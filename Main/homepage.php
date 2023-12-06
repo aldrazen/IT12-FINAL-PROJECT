@@ -52,13 +52,13 @@
               </div>
               <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarCollapse">
                 <div class="right-section d-flex flex-row flex-wrap py-md-0 text-center">
-                  <div class="icon-container col-4 col-md-auto px-4">
+                  <div class="icon-container col-4 col-md-auto ">
                     <i class="bi bi-search fs-3"></i>
                   </div>
                   <div class="icon-container col-4 col-md-auto px-4">
                     <i class="bi bi-bag fs-3" onclick="login()"></i>
                   </div>
-                  <div class="icon-container col-4 col-md-auto px-4">
+                  <div class="icon-container col-4 col-md-auto ">
                     <i class="bi bi-person-circle fs-3" onclick="login()"></i>
                   </div>
                 </div>
@@ -89,7 +89,7 @@
             Perfect your appearance with a Trendy Style. Find your trendy
             style here.
           </p>
-          <button class="btn shop-now px-5 py-4 mb-3" onclick="redirectToShop()">
+          <button class="btn shop-now px-5 py-4 mb-3" onclick="login()">
             SHOP NOW
           </button>
         </div>

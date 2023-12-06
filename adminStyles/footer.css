@@ -1,0 +1,33 @@
+
+.sign-up {
+  border: 2px solid white;
+  font-size: 20px;
+  font-family: 'Baskervville', serif;
+  color: white;
+}
+.sign-up:hover {
+  background-color: #96C422;
+  color: black;
+  font-weight: bold;
+}
+footer h1{
+  font-family: 'Anton', sans-serif;
+}
+footer h4{
+  font-family: 'Baskervville', serif;
+  color: white;
+  font-weight: bold;
+}
+.social-media{
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+.footer-logo{
+  height: 120px;
+}
+footer a:hover{
+  color: #96C422;
+}

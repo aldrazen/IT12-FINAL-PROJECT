@@ -17,19 +17,16 @@ label {
 }
 
 .form-control {
-
   font-weight: bold;
   color: white;
 }
 
 .form-control:focus {
-
   font-weight: bold;
   color: white;
   box-shadow: none;
   border-color: #96C422;
 }
-
 h3 {
   font-family: 'Baskervville', serif;
   font-weight: bold;

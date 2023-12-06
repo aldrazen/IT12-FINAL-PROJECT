@@ -13,7 +13,11 @@ if (isset($_POST['Username']) && isset($_POST['password'])){
       $row = mysqli_fetch_assoc($result);
       if($password == $row['customer_password']){
         $_SESSION ['customerID'] = $row['customer_ID'];
+        $_SESSION ['fullname'] = $row['customer_name'];
         $_SESSION ['username'] = $row['customer_username'];
+        $_SESSION ['number'] = $row['customer_number'];
+        $_SESSION ['address'] = $row['customer_address'];
+        $_SESSION ['password'] = $row['customer_password'];
         header("Location: ../customer/customerHome.php");
          exit();
       } else{

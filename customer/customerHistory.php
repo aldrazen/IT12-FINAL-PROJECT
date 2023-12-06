@@ -42,7 +42,7 @@ if(isset($_SESSION['customerID'])){
             <a class="nav-link p-3 larger-text" href="customerHome.php">HOME</a>
           </li>
           <li class="nav-item col-4 col-md-auto">
-            <a class="nav-link activee p-3 normal-text" href="customerShop.php">SHOP</a>
+            <a class="nav-link  p-3 normal-text" href="customerShop.php">SHOP</a>
           </li>
           <li class="nav-item col-4 col-md-auto">
             <a class="nav-link p-3 normal-text" href="">ABOUT</a>
@@ -50,18 +50,17 @@ if(isset($_SESSION['customerID'])){
         </ul>
       </div>
       <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarCollapse">
-        <div class="right-section d-flex flex-row flex-wrap py-md-0 text-center">
+        <div class="right-section d-flex flex-row flex-wrap justify-content-between text-center py-md-0">
           <div class="icon-container col-4 col-md-auto ">
             <i class="bi bi-search fs-3"></i>
           </div>
           <div class="icon-container col-4 col-md-auto px-4">
             <i class="bi bi-bag fs-3" onclick="myBag()"></i>
           </div>
-          <div class="icon-container col-4 col-md-auto ">
-            <i class="bi bi-person-circle fs-3" onclick="customerUpdate()"><span class="fs-4">
-                <?php echo $_SESSION ['username']?></span>
+          <div class="icon-container col-4 col-md-auto">
+            <i class="bi bi-person-circle fs-3" onclick="customerUpdate()"> <?php echo $_SESSION ['username']?> <a
+                href="../Sessions/customerLogout.php" style="color: #be1206">logout?</a>
             </i>
-            <a href="../Sessions/customerLogout.php" style="color: #be1206">logout?</a>
           </div>
         </div>
       </div>

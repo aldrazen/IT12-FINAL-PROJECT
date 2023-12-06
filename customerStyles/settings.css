@@ -1,0 +1,40 @@
+.account-settings{
+  cursor: pointer;
+
+}
+.account-details{
+ height: 100svh;
+}
+h4, .header, .account-settings, .form-label{
+  font-weight: bold;
+  font-family: 'Baskervville', serif;
+}
+.active{
+  background-color: rgba(0, 0, 0, 0.849);
+}
+.account-settings:hover{
+  background-color: rgba(0, 0, 0, 0.849);
+  color: white;
+}
+.header{
+  background-color: rgba(0, 0, 0, 0.226);
+}
+
+::placeholder{
+  font-weight: bold;
+  color: red;
+}
+.form-control {
+  border-color: black;
+  font-weight: bold;
+}
+.form-control:focus{
+  box-shadow: none;
+  border-color: #96C422;
+}
+.col-12 button{
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Baskervville', serif;
+  padding: 15px;
+}

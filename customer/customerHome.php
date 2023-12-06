@@ -30,12 +30,12 @@ if(isset($_SESSION['customerID'])){
 
 <body>
   <div class="container-fluid p-0">
-    <div class="card bg-black rounded-0 p-0 m-0 overflow-hidden">
+    <div class="card bg-black rounded-0 p-0 m-0">
       <div class="card-img-overlay p-0">
         <div class="image-shadow h-100 p-0">
           <nav class="navbar navbar-expand-md mb-3 pt-lg-4">
             <div class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main Navigation">
-              <a href="homepage.php"><img class="ts-logo navbar-brand rounded-4" src="../images/logo-bg.jpg"
+              <a href="customerHome.php"><img class="ts-logo navbar-brand rounded-4" src="../images/logo-bg.jpg"
                   alt="Logo" /></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,15 +56,17 @@ if(isset($_SESSION['customerID'])){
               </div>
               <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarCollapse">
                 <div class="right-section d-flex flex-row flex-wrap py-md-0 text-center">
-                  <div class="icon-container col-4 col-md-auto px-4">
+                  <div class="icon-container col-4 col-md-auto ">
                     <i class="bi bi-search fs-3"></i>
                   </div>
                   <div class="icon-container col-4 col-md-auto px-4">
                     <i class="bi bi-bag fs-3" onclick="myBag()"></i>
                   </div>
-                  <div class="icon-container col-4 col-md-auto px-4">
-                    <i class="bi bi-person-circle fs-3"> <?php echo $_SESSION ['username']?></i>
-                    <span> <a href="../Sessions/customerLogout.php" style="color: #be1206">logout?</a></span>
+                  <div class="icon-container col-4 col-md-auto ">
+                    <i class="bi bi-person-circle fs-3" onclick="customerUpdate()"><span class="fs-4">
+                        <?php echo $_SESSION ['username']?></span>
+                    </i>
+                    <a href="../Sessions/customerLogout.php" style="color: #be1206">logout?</a>
                   </div>
                 </div>
               </div>
