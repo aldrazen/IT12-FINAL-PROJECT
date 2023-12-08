@@ -70,86 +70,44 @@ if(isset($_SESSION['customerID'])){
   <div class="products pt-sm-5 pb-5">
     <div class="container mt-sm-3">
       <div class="row row-gap-4">
-        <div class="col-lg-3">
-          <div class="card">
-            <img class="card-img-top" src="../images/grenade.jpg" alt="" />
-          </div>
-          <p class="productName p-0 mt-2 mb-0">GRENADE BUDS</p>
-          <p class="productdPrice m-0">₱ 650.00</p>
-          <div class="d-flex p-0 m-0 justify-content-between align-items-center">
-            <p class="size m-0 p-0">Size</p>
-            <div class="sizeCategory d-flex">
-              <button class="btn btn-size m-0">M</button>
-              <button class="btn btn-size mx-3">L</button>
-              <button class="btn btn-size m-0">XL</button>
+        <?php
+    include '../customer-database/connectionDB.php';
+
+    // Products query
+    $product_result = mysqli_query($connection,"SELECT * FROM product_tbl");
+
+    while ($product_row = mysqli_fetch_assoc($product_result)) {
+        $shirtName = $product_row['shirt_name'];
+        $productPrice = $product_row['prod_price'];
+        $productImage = $product_row['prod_image'];
+        $prodID = $product_row['prod_ID'];
+
+        echo "<div class='col-lg-3'>
+            <div class='card'>
+                <img class='card-img-top' name='$productImage' src='../admin/product-images/$productImage' alt='$productImage' />
             </div>
-          </div>
-          <div class="d-grid pt-3">
-            <button class="btn btn-add btn-outline-dark border-2 rounded-5">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="card">
-            <img class="card-img-top w-100" src="../images/island-black.jpg" alt="" />
-          </div>
-          <p class="productName p-0 mt-2 mb-0">JOINT ISLAND</p>
-          <p class="productdPrice m-0">₱ 600.00</p>
-          <div class="d-flex p-0 m-0 justify-content-between align-items-center">
-            <p class="size m-0 p-0">Size</p>
-            <div class="sizeCategory d-flex">
-              <button class="btn btn-size m-0">M</button>
-              <button class="btn btn-size mx-3">L</button>
-              <button class="btn btn-size m-0">XL</button>
-            </div>
-          </div>
-          <div class="d-grid pt-3">
-            <button class="btn btn-add btn-outline-dark border-2 rounded-5">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="card">
-            <img class="card-img-top" src="../images/honey.jpg" alt="" />
-          </div>
-          <p class="productName p-0 mt-2 mb-0">FORBIDDEN HONEY</p>
-          <p class="productdPrice m-0">₱ 650.00</p>
-          <div class="d-flex p-0 m-0 justify-content-between align-items-center">
-            <p class="size m-0 p-0">Size</p>
-            <div class="sizeCategory d-flex">
-              <button class="btn btn-size m-0">M</button>
-              <button class="btn btn-size mx-3">L</button>
-              <button class="btn btn-size m-0">XL</button>
-            </div>
-          </div>
-          <div class="d-grid pt-3">
-            <button class="btn btn-add btn-outline-dark border-2 rounded-5">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="card">
-            <img class="card-img-top" src="../images/island-white.jpg" alt="" />
-          </div>
-          <p class="productName p-0 mt-2 mb-0">BONG ISLAND</p>
-          <p class="productdPrice m-0">₱ 600.00</p>
-          <div class="d-flex p-0 m-0 justify-content-between align-items-center">
-            <p class="size m-0 p-0">Size</p>
-            <div class="sizeCategory d-flex">
-              <button class="btn btn-size m-0">M</button>
-              <button class="btn btn-size mx-3">L</button>
-              <button class="btn btn-size m-0">XL</button>
-            </div>
-          </div>
-          <div class="d-grid pt-3">
-            <button class="btn btn-add btn-outline-dark border-2 rounded-5">
-              ADD TO BAG
-            </button>
-          </div>
-        </div>
+            <p class='productName p-0 mt-2 mb-0' name='$prodID'>$shirtName</p>
+            <p class='productdPrice m-0' name='$productPrice'>₱ $productPrice</p>
+            <div class='d-flex p-0 m-0 justify-content-between align-items-center'>
+                <p class='size m-0 p-0'>Size</p>
+                <div class='sizeCategory d-flex'>";
+                $size_result = mysqli_query($connection, "SELECT * FROM size_tbl");
+                while ($size_row = mysqli_fetch_assoc($size_result)) {
+                  $sizeID = $size_row['size_ID'];
+                  $sizeName = $size_row['size_name'];
+                  echo "<button class='btn btn-size mx-2' onclick='selectSize($sizeID)'>$sizeName</button>";
+                }
+                mysqli_data_seek($size_result, 0);
+                echo "</div>
+                </div>
+                  <div class='d-grid pt-3'>
+                    <button onclick='addToCart($prodID)' class='btn btn-add btn-outline-dark border-2 rounded-5'>
+                      ADD TO BAG
+                    </button>
+                  </div>
+              </div>";
+            }
+    ?>
       </div>
     </div>
   </div>

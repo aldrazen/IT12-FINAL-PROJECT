@@ -19,3 +19,16 @@ function register(){
 function goToHome(){
    window.location.href='../Main/homepage.php';
 }
+
+let selectedSize = null;
+
+function selectSize(sizeID) {
+  selectedSize = sizeID;
+}
+function addToCart(productID) {
+  if (selectedSize === null) {
+    alert('Please select a size before adding to the bag.');
+  } else {
+    window.location.href = `../customer-database/addToCart.php?add_to_cart=${productID}&size=${selectedSize}`;
+  }
+}

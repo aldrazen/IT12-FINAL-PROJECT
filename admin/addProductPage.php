@@ -32,7 +32,7 @@ include '../admin-database/connectionDB.php';
     <img class="logo" src="../images/logo-bg.jpg" alt="logo" />
     <h3 class="text-white">Sign up</h3>
     <div class="container w-50 mt-3">
-      <form action="../customer-database/signupDB.php" method="post" enctype="multipart/form-data">
+      <form action="../admin-database/addProductDB.php" method="post" enctype="multipart/form-data">
         <div class="row mt-2">
           <div class="col-lg-6 mt-2">
             <div class="form-outline">
@@ -53,19 +53,9 @@ include '../admin-database/connectionDB.php';
         <div class="row mt-2">
           <div class="col-lg-6">
             <div class="form-outline">
-              <label for="size" class="form-label">Size</label>
-              <select name="size" id="" class="form-select" required>
-                <option value="" class="size-option" disabled selected>Select Size</option>
-                <?php
-                $size_query = "SELECT * FROM size_tbl";
-                $size_result = mysqli_query($connection,$size_query);
-                while ($row = mysqli_fetch_assoc($size_result)){
-                  $sizeName = $row['size_name'];
-                  $sizeID = $row['size_ID'];
-                  echo "<option value='$sizeID'>$sizeName</option>";
-                }
-                ?>
-              </select>
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="number" class="form-control rounded-4 py-2 bg-transparent border-4" name="quantity"
+                id="quantity" required>
             </div>
           </div>
           <div class="col-lg-6">
@@ -75,20 +65,11 @@ include '../admin-database/connectionDB.php';
             </div>
           </div>
         </div>
-        <div class="row mt-2">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <div class="form-outline">
-              <label for="quantity" class="form-label">Quantity</label>
-              <input type="number" class="form-control rounded-4 py-2 bg-transparent border-4" name="quantity"
-                id="quantity" required>
-            </div>
-          </div>
-        </div>
 
         <div class="row">
           <div class="col-lg-12">
             <div class="text-center">
-              <button type="submit" name="add-product" class="signup py-2 rounded-4 mt-lg-5 my-3 w-50">
+              <button type="submit" name="add_product" class="signup py-2 rounded-4 mt-lg-5 my-3 w-50">
                 ADD PRODUCT
               </button>
             </div>

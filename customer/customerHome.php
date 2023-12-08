@@ -102,44 +102,25 @@ if(isset($_SESSION['customerID'])){
         </div>
         <div class="col-lg-7">
           <div class="row">
-            <div class="col-lg-6">
-              <div class="card bg-white py-2 px-4">
-                <img class="card-img" src="../images/island-black.jpg" alt="" />
+            <?php
+            include '../customer-database/connectionDB.php';
+            $product_query = "SELECT * FROM product_tbl  order by shirt_name";
+            $result = mysqli_query($connection,$product_query);
+            while($row = mysqli_fetch_assoc($result)){
+              $shirtName = $row['shirt_name'];
+              $productPrice = $row['prod_price'];
+              $productImage = $row['prod_image']; 
+              echo" <div class='col-lg-6'>
+              <div class='card bg-white py-2 px-4'>
+                <img class='card-img' src='../admin/product-images/$productImage' alt='$productImage' />
               </div>
-              <div class="description d-flex justify-content-around my-2">
-                <p>JOINT ISLAND</p>
-                <p>₱ 600.00</p>
+              <div class='description d-flex justify-content-around my-2'>
+                <p>$shirtName</p>
+                <p>₱ $productPrice</p>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card bg-white py-2 px-4">
-                <img class="card-img" src="../images/honey.jpg" alt="" />
-              </div>
-              <div class="description d-flex justify-content-around my-2">
-                <p>FORBIDDEN HONEY</p>
-                <p>₱ 650.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card bg-white py-2 px-4">
-                <img class="card-img" src="../images/grenade.jpg" alt="" />
-              </div>
-              <div class="description d-flex justify-content-around my-2">
-                <p>GRENADE BUDS</p>
-                <p>₱ 650.00</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card bg-white py-2 px-4">
-                <img class="card-img" src="../images/island-white.jpg" alt="" />
-              </div>
-              <div class="description d-flex justify-content-around my-2">
-                <p>BONG ISLAND</p>
-                <p>₱ 600.00</p>
-              </div>
-            </div>
+            </div>";
+            }
+            ?>
           </div>
         </div>
       </div>

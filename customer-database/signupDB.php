@@ -34,4 +34,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       exit();
     }
 }
+else{
+    header("location: ../customer/customerHome.php");
+     exit();
+  }
 ?>
