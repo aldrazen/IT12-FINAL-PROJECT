@@ -3,7 +3,7 @@
 
 }
 .account-details{
- height: 100svh;
+  min-height: 50svh;
 }
 h4, .header, .account-settings, .form-label{
   font-weight: bold;

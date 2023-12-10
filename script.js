@@ -2,7 +2,7 @@ function redirectToShop() {
   window.location.href = '../customer/customerShop.php';
 }
 function myBag(){
-  window.location.href='../customer/mybag.php';
+  window.location.href='../customer/customerBag.php';
 }
 function customerUpdate(){
   window.location.href='../customer/customerUpdate.php';
@@ -32,3 +32,5 @@ function addToCart(productID) {
     window.location.href = `../customer-database/addToCart.php?add_to_cart=${productID}&size=${selectedSize}`;
   }
 }
+
+

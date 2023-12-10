@@ -66,14 +66,10 @@ include '../admin-database/connectionDB.php';
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="text-center">
-              <button type="submit" name="add_product" class="signup py-2 rounded-4 mt-lg-5 my-3 w-50">
-                ADD PRODUCT
-              </button>
-            </div>
-          </div>
+        <div class="d-flex justify-content-center">
+          <button type="submit" name="add_product" class="signup py-2 rounded-4 mt-lg-5 my-3">
+            ADD PRODUCT
+          </button>
         </div>
       </form>
     </div>

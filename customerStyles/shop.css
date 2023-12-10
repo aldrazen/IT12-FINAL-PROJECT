@@ -1,6 +1,9 @@
 body{
   background-color: #F4F3F0;
 }
+.products{
+  min-height: 50svh;
+}
 .ts-logo {
   height: 120px;
   border-radius: 10px;

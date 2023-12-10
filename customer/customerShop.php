@@ -67,8 +67,8 @@ if(isset($_SESSION['customerID'])){
       </div>
     </div>
   </nav>
-  <div class="products pt-sm-5 pb-5">
-    <div class="container mt-sm-3">
+  <div class="products">
+    <div class="container mt-sm-5">
       <div class="row row-gap-4">
         <?php
     include '../customer-database/connectionDB.php';
@@ -81,9 +81,8 @@ if(isset($_SESSION['customerID'])){
         $productPrice = $product_row['prod_price'];
         $productImage = $product_row['prod_image'];
         $prodID = $product_row['prod_ID'];
-
         echo "<div class='col-lg-3'>
-            <div class='card'>
+            <div class='card mt-3'>
                 <img class='card-img-top' name='$productImage' src='../admin/product-images/$productImage' alt='$productImage' />
             </div>
             <p class='productName p-0 mt-2 mb-0' name='$prodID'>$shirtName</p>
@@ -113,7 +112,7 @@ if(isset($_SESSION['customerID'])){
   </div>
 </body>
 <footer>
-  <div class="container-fluid bg-black mt-5">
+  <div class="container-fluid bg-black">
     <div class="container py-5">
       <div class="row">
         <div class="col-lg-6 mb-4">

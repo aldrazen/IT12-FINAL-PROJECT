@@ -1,7 +1,9 @@
 body {
   background-color: #F4F3F0;
 }
-
+.myBag{
+  min-height: 100vh;
+}
 .ts-logo {
   height: 120px;
   border-radius: 10px;
@@ -32,4 +34,37 @@ body {
   font-weight: bold;
   color: #96C422;
   cursor: pointer;
+}
+.img-fluid{
+  border: 2px solid black
+}
+.shirt-name{
+  font-size: 25px;
+  font-family: 'Anton', sans-serif;
+  color: rgb(114, 114, 114);
+}
+.price,.total-price{
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.size,.quantity{
+  font-size: 17px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.address-section{
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.bi-geo-alt{
+  font-size: 55px;
+  color: rgb(184, 184, 184);
+}
+.order-summary{
+  margin-top: 70px;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
 }

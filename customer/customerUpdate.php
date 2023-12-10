@@ -68,7 +68,7 @@ if(isset($_SESSION['customerID'])){
       </div>
     </div>
   </nav>
-  <div class="account-details h-75">
+  <div class="account-details mt-sm-5">
     <div class="container bg-white pb-4">
       <form action="../customer-database/customerUpdateDB.php" method="POST">
         <div class="row">
@@ -162,7 +162,7 @@ if(isset($_SESSION['customerID'])){
   </div>
 </body>
 <footer>
-  <div class="container-fluid bg-black mt-5">
+  <div class="container-fluid bg-black">
     <div class="container py-5">
       <div class="row">
         <div class="col-lg-6 mb-4">

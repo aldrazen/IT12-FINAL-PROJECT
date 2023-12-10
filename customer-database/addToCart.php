@@ -16,6 +16,8 @@ if (isset($_GET['add_to_cart'])) {
       // If same size gi add to bag sa user, ma increment cart_quantity
       $update_cart = "UPDATE cart_tbl SET cart_quantity = cart_quantity + 1 WHERE customer_ID = $customerID AND prod_ID = $productID AND size_ID = $sizeID";
       $update_result = mysqli_query($connection, $update_cart);
+      echo "<script> alert('ADDED TO BAG!'); window.location.href = '../customer/customerShop.php';</script>";
+      exit();
     } else {
       // if wala ang product ug size sa cart, i add siya sa cart
       $addCart_query = "INSERT INTO `cart_tbl` (customer_ID, prod_ID, size_ID, cart_quantity) VALUES ('$customerID','$productID', $sizeID, 1)";
