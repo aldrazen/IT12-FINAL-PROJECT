@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2023 at 08:48 AM
+-- Generation Time: Dec 12, 2023 at 12:59 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -28,20 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart_tbl` (
-  `cart_ID` int(11) NOT NULL,
+  `cart_ID` int(4) NOT NULL,
   `customer_ID` int(4) NOT NULL,
   `prod_ID` int(4) NOT NULL,
   `size_ID` int(4) NOT NULL,
-  `cart_quantity` int(5) NOT NULL
+  `cart_quantity` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cart_tbl`
---
-
-INSERT INTO `cart_tbl` (`cart_ID`, `customer_ID`, `prod_ID`, `size_ID`, `cart_quantity`) VALUES
-(29, 3, 28, 1, 4),
-(30, 3, 29, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -71,15 +63,46 @@ INSERT INTO `customer_tbl` (`customer_ID`, `customer_name`, `customer_username`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `order_items_tbl`
+--
+
+CREATE TABLE `order_items_tbl` (
+  `item_ID` int(4) NOT NULL,
+  `order_ID` int(4) NOT NULL,
+  `prod_ID` int(4) NOT NULL,
+  `prod_size` varchar(5) NOT NULL,
+  `item_price` double(10,2) NOT NULL,
+  `item_quantity` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items_tbl`
+--
+
+INSERT INTO `order_items_tbl` (`item_ID`, `order_ID`, `prod_ID`, `prod_size`, `item_price`, `item_quantity`) VALUES
+(25, 16, 30, 'M', 650.00, 1),
+(26, 16, 29, 'L', 600.00, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `order_tbl`
 --
 
 CREATE TABLE `order_tbl` (
   `order_ID` int(4) NOT NULL,
-  `delivery_address` varchar(250) NOT NULL,
-  `order_status` varchar(20) NOT NULL,
-  `order_date` date NOT NULL
+  `customer_ID` int(4) NOT NULL,
+  `order_date` date NOT NULL,
+  `order_status` varchar(100) NOT NULL,
+  `total_price` double(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_tbl`
+--
+
+INSERT INTO `order_tbl` (`order_ID`, `customer_ID`, `order_date`, `order_status`, `total_price`) VALUES
+(16, 3, '2023-12-12', 'Confirmed', 1250.00);
 
 -- --------------------------------------------------------
 
@@ -147,10 +170,19 @@ ALTER TABLE `customer_tbl`
   ADD UNIQUE KEY `customer_username` (`customer_username`);
 
 --
+-- Indexes for table `order_items_tbl`
+--
+ALTER TABLE `order_items_tbl`
+  ADD PRIMARY KEY (`item_ID`),
+  ADD KEY `order_ID` (`order_ID`),
+  ADD KEY `prod_ID` (`prod_ID`);
+
+--
 -- Indexes for table `order_tbl`
 --
 ALTER TABLE `order_tbl`
-  ADD PRIMARY KEY (`order_ID`);
+  ADD PRIMARY KEY (`order_ID`),
+  ADD KEY `customer_ID` (`customer_ID`);
 
 --
 -- Indexes for table `product_tbl`
@@ -172,7 +204,7 @@ ALTER TABLE `size_tbl`
 -- AUTO_INCREMENT for table `cart_tbl`
 --
 ALTER TABLE `cart_tbl`
-  MODIFY `cart_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `cart_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `customer_tbl`
@@ -181,10 +213,16 @@ ALTER TABLE `customer_tbl`
   MODIFY `customer_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `order_items_tbl`
+--
+ALTER TABLE `order_items_tbl`
+  MODIFY `item_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
 -- AUTO_INCREMENT for table `order_tbl`
 --
 ALTER TABLE `order_tbl`
-  MODIFY `order_ID` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product_tbl`
@@ -209,6 +247,19 @@ ALTER TABLE `cart_tbl`
   ADD CONSTRAINT `cart_tbl_ibfk_1` FOREIGN KEY (`customer_ID`) REFERENCES `customer_tbl` (`customer_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cart_tbl_ibfk_2` FOREIGN KEY (`prod_ID`) REFERENCES `product_tbl` (`prod_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cart_tbl_ibfk_3` FOREIGN KEY (`size_ID`) REFERENCES `size_tbl` (`size_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_items_tbl`
+--
+ALTER TABLE `order_items_tbl`
+  ADD CONSTRAINT `order_items_tbl_ibfk_1` FOREIGN KEY (`order_ID`) REFERENCES `order_tbl` (`order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_items_tbl_ibfk_2` FOREIGN KEY (`prod_ID`) REFERENCES `product_tbl` (`prod_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_tbl`
+--
+ALTER TABLE `order_tbl`
+  ADD CONSTRAINT `order_tbl_ibfk_1` FOREIGN KEY (`customer_ID`) REFERENCES `customer_tbl` (`customer_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
