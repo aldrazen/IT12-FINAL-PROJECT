@@ -83,7 +83,7 @@ if(isset($_SESSION['customerID'])){
         $prodID = $product_row['prod_ID'];
         echo "<div class='col-lg-3'>
             <div class='card mt-3'>
-                <img class='card-img-top' name='$productImage' src='../admin/product-images/$productImage' alt='$productImage' />
+                <img class='card-img-top shadow' name='$productImage' src='../admin/product-images/$productImage' alt='$productImage' />
             </div>
             <p class='productName p-0 mt-2 mb-0' name='$prodID'>$shirtName</p>
             <p class='productdPrice m-0' name='$productPrice'>₱ $productPrice</p>
@@ -106,7 +106,7 @@ if(isset($_SESSION['customerID'])){
                   </div>
               </div>";
             }
-    ?>
+        ?>
       </div>
     </div>
   </div>

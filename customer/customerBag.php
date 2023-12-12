@@ -50,8 +50,19 @@ if(isset($_SESSION['customerID'])){
         </ul>
       </div>
       <div class="collapse navbar-collapse align-items-center justify-content-end" id="navbarCollapse">
-        <div class="right-section d-flex flex-row flex-wrap justify-content-center text-center py-md-0">
-          <div class="fs-5">MY BAG</div>
+        <div class="right-section d-flex flex-row flex-wrap justify-content-between text-center py-md-0">
+          <div class="icon-container col-4 col-md-auto ">
+            <i class="bi bi-search fs-3"></i>
+          </div>
+          <div class="icon-container col-4 col-md-auto px-4">
+            <i class="bi bi-bag fs-3" onclick="myBag()" style="color:#96C422;"></i>
+          </div>
+          <div class="icon-container col-4 col-md-auto">
+            <i class="bi bi-person-circle fs-3" onclick="customerUpdate()"> <span class="fs-4">
+                <?php echo $_SESSION ['username']?></span>
+            </i>
+            <a href="../Sessions/customerLogout.php" style="color: #be1206">logout?</a>
+          </div>
         </div>
       </div>
     </div>
@@ -65,9 +76,15 @@ if(isset($_SESSION['customerID'])){
        //para makuha ang sulod sa cart
        $customerID = $_SESSION['customerID'];
        $total_price = 0;
-       $cart_query = mysqli_query($connection,"SELECT product_tbl.prod_image, product_tbl.shirt_name, product_tbl.prod_price, cart_tbl.cart_quantity, size_tbl.size_name
+       $cart_check_query = mysqli_query($connection, "SELECT COUNT(*) as total_items FROM cart_tbl WHERE customer_ID = $customerID");
+       $cart_check_result = mysqli_fetch_assoc($cart_check_query);
+       $itemsInCart = $cart_check_result['total_items'];
+       
+       if($itemsInCart > 0){
+        $cart_query = mysqli_query($connection,"SELECT cart_tbl.cart_ID, product_tbl.prod_image, product_tbl.shirt_name, product_tbl.prod_price, cart_tbl.cart_quantity, size_tbl.size_name
        FROM cart_tbl INNER JOIN product_tbl ON cart_tbl.prod_ID = product_tbl.prod_ID INNER JOIN size_tbl ON cart_tbl.size_ID = size_tbl.size_ID WHERE customer_ID = $customerID");
        while($cart_row = mysqli_fetch_assoc($cart_query)){
+        $itemID = $cart_row['cart_ID'];
         $shirtImage = $cart_row['prod_image'];
         $shirtName = $cart_row['shirt_name'];
         $shirtPrice = $cart_row['prod_price'];
@@ -75,13 +92,13 @@ if(isset($_SESSION['customerID'])){
         $size = $cart_row['size_name'];
         $item_total = $shirtPrice * $quantity;
         $total_price += $item_total;
-        echo"<div class='card mb-3 p-3 mt-3'>
+        echo"<div class='card mb-3 p-3 mt-3 shadow'>
             <div class='row g-0'>
               <div class='col-md-5'>
                 <img class='img-fluid' name='$shirtImage' src='../admin/product-images/$shirtImage' alt='$shirtImage'/>
               </div>
               <div class='col-md-7'>
-                <div class='card-body d-flex flex-column justify-content-between h-100'>
+                <div class='card-body d-flex flex-column justify-content-between  m-0 h-100'>
                   <div class='row'>
                     <div class='col-7'>
                       <div class='shirt-name'>$shirtName</div>
@@ -94,47 +111,58 @@ if(isset($_SESSION['customerID'])){
                       <div class='price'>₱ $shirtPrice</div>
                     </div>
                   </div>
-                  <div class='row mt-2'>
-                    <div class='col-7 quantity'>
-                      <label for='quantity'>Quantity</label>
-                      <input type='number' name='quantity' class='w-50' value='$quantity' />
+                  <form action='../customer-database/cartUpdateDB.php' method='GET'>
+                    <div class='row mt-2'>
+                      <div class='col-7 quantity'>
+                        <label for='quantity'>Quantity</label>
+                        <input type='hidden' name='update_cart' value='$itemID'>
+                        <input type='number' name='quantity' class='w-50' value='$quantity' required />
+                      </div>
+                      <div class='col-5 text-center total-price'>₱ $item_total.00</div>
                     </div>
-                    <div class='col-5 text-center total-price'>₱ $item_total</div>
+                    <div class='row mt-3'>
+                    <div class='col-6 text-center '><button type='submit' class='btn cart-update'>UPDATE</button></div>
+                  </form>
+                  <div class='col-6 text-center '><a href='../customer-database/cartRemoveDB.php?remove_item=$itemID' class='btn cart-remove' >REMOVE</a></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>";
+        }
+       } else{
+        echo "<div class='alert mt-3' role='alert'><span class='bi bi-bag fs-4'> </span> Your bag is currently empty. <a href='customerShop.php' > Shop now!</a></div>";
        }
        ?>
         </div>
         <!--USER DELIVERY SECTION-->
         <div class="col-lg-4">
-          <div class="row">
-            <div class="col d-flex">
-              <span class="bi bi-geo-alt p-0 m-0"></span>
-              <div class="row">
-                <div class="col-12">
-                  <div class="address-section mx-2 mt-3">
-                    <p class="mb-1">DELIVERY ADDRESS</p>
-                    <?php
+          <form action="../customer-database/cartPurchaseDB.php" method="GET">
+            <div class="row">
+              <div class="col d-flex">
+                <span class="bi bi-geo-alt p-0 m-0"></span>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="address-section mx-2 mt-3">
+                      <p class="mb-1">DELIVERY ADDRESS</p>
+                      <?php
                     include'../customer-database/connectionDB.php';
                     $address_query = mysqli_query($connection,"SELECT customer_address FROM customer_tbl WHERE customer_ID = $customerID");
                     while($address_row = mysqli_fetch_assoc($address_query)){
                       $address = $address_row['customer_address'];
-                      echo" <div class='user-address'>$address</div>";
+                      echo" <div class='user-address' name='address'>$address</div>";
                     }
                     ?>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="order-summary align-items-center">
-            Order Summary
-            <div class="container bg-white p-4">
-              <?php
+            <div class="order-summary align-items-center">
+              Order Summary
+              <div class="container bg-white p-4">
+                <?php
                 include '../customer-database/connectionDB.php';
                 $items_query = mysqli_query($connection,"SELECT COUNT(*) as total_items FROM cart_tbl WHERE customer_ID = $customerID;");
                 while($result = mysqli_fetch_assoc($items_query)){
@@ -143,7 +171,7 @@ if(isset($_SESSION['customerID'])){
 
                 }
               ?>
-              <?php
+                <?php
                   $total_price = 0;
                   $cart_query = mysqli_query($connection,"SELECT product_tbl.shirt_name, product_tbl.prod_price, cart_tbl.cart_quantity, size_tbl.size_name
                   FROM cart_tbl INNER JOIN product_tbl ON cart_tbl.prod_ID = product_tbl.prod_ID INNER JOIN size_tbl ON cart_tbl.size_ID = size_tbl.size_ID WHERE customer_ID = $customerID");
@@ -169,7 +197,7 @@ if(isset($_SESSION['customerID'])){
               
                 }
               ?>
-              <?php
+                <?php
               include '../customer-database/connectionDB.php';
               $cart_query = mysqli_query($connection,"SELECT SUM(product_tbl.prod_price * cart_tbl.cart_quantity) AS total_price FROM cart_tbl 
               INNER JOIN product_tbl ON cart_tbl.prod_ID = product_tbl.prod_ID WHERE cart_tbl.customer_ID = $customerID;");
@@ -178,23 +206,25 @@ if(isset($_SESSION['customerID'])){
                 echo("<div class='sub-total-amount text-end'>₱ $totalPrice</div>");
               }
               ?>
-              <div class="shipping my-5">
-                Shipping
-                <div class="shipping-price text-end px-5">0</div>
-              </div>
-              <div class="row mb-3">
-                <div class="col-7">Total: </div>
-                <div class="col-5 text-center">
-                  <?php
+                <div class="shipping my-5">
+                  Shipping
+                  <div class="shipping-price text-end px-5">0</div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-7">Total: </div>
+                  <div class="col-5 text-center">
+                    <?php
                   echo("<div class='total'>₱ $totalPrice</div>");
                   ?>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <input type="hidden" name="address" value="<?php echo $address; ?>">
+                  <button type='submit' class="btn btn-dark px-5 py-2 rounded-5">Place Order</button>
                 </div>
               </div>
-              <div class="d-flex justify-content-center">
-                <a href="" class="btn btn-dark px-5 py-2 rounded-5">PROCEED TO BUY</a>
-              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

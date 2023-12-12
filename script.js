@@ -29,8 +29,9 @@ function addToCart(productID) {
   if (selectedSize === null) {
     alert('Please select a size before adding to the bag.');
   } else {
-    window.location.href = `../customer-database/addToCart.php?add_to_cart=${productID}&size=${selectedSize}`;
+    window.location.href = `../customer-database/addToCartDB.php?add_to_cart=${productID}&size=${selectedSize}`;
   }
 }
+
 
 

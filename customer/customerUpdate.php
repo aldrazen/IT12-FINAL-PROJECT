@@ -76,16 +76,16 @@ if(isset($_SESSION['customerID'])){
             <h4 class="mx-4">My Account</h4>
             <div class="sidebar mt-4">
               <div class="account-settings d-flex justify-content-center flex-column active p-0 m-0">
-                <p class="fs-5 m-0 py-1 text-white" onclick="customerUpdate()">Personal Details</p>
+                <p class="fs-5 m-0 py-1 text-white mx-2" onclick="customerUpdate()">Personal Details</p>
               </div>
               <div class="account-settings d-flex justify-content-center flex-column mt-2">
-                <p class="fs-5 m-0 py-1" onclick="customerHistory()">My Purchase</p>
+                <p class="fs-5 m-0 py-1 mx-2" onclick="customerHistory()">My Purchase</p>
               </div>
             </div>
           </div>
-          <div class="col-9 p-0 m-0">
+          <div class="col-9 p-0">
             <div class="header">
-              <p class="fs-5 py-2 mx-5">Personal Details</p>
+              <p class="fs-5 py-2 mx-3">Personal Details</p>
             </div>
             <div class="row d-flex justify-content-around row-gap-3 mx-3 my-4">
               <div class="col-lg-5">
@@ -134,7 +134,7 @@ if(isset($_SESSION['customerID'])){
               </div>
             </div>
             <div class="header">
-              <p class="fs-5 py-2 mx-5">Billing Address</p>
+              <p class="fs-5 py-2 mx-3">Billing Address</p>
             </div>
             <div class="row d-flex justify-content-center mx-2 my-4">
               <div class="col-lg-10">

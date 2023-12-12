@@ -1,0 +1,69 @@
+.account-settings {
+  cursor: pointer;
+
+}
+
+.account-details {
+  min-height: 50svh;
+}
+
+h4,
+.header,
+.account-settings,
+.form-label {
+  font-weight: bold;
+  font-family: 'Baskervville', serif;
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0.849);
+}
+
+.account-settings:hover {
+  background-color: rgba(0, 0, 0, 0.849);
+  color: white;
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.226);
+}
+
+::placeholder {
+  font-weight: bold;
+  color: red;
+}
+
+.form-control {
+  border-color: black;
+  font-weight: bold;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #96C422;
+}
+
+.col-12 button {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Baskervville', serif;
+  padding: 15px;
+}
+.item-image{
+  height: 90px;
+  border: 1px solid black
+}
+.shirt-description, .order-total{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.shirt-name, .shirt-price{
+  font-weight: bold;
+}
+.shirt-size{  
+  color: rgb(100, 100, 100);
+}
+.shirt-price-total{
+  color: #96C422;
+  font-weight: bold;
+  font-size: 20px;
+}

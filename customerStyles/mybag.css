@@ -17,6 +17,7 @@ body {
   font-size: 20px;
   font-family: 'Baskervville', serif;
   font-weight: bold;
+  color: black;
 }
 
 .activee {
@@ -29,10 +30,9 @@ body {
   color: #96C422;
 }
 
-.fs-5{
-  font-family: 'Baskervville', serif;
-  font-weight: bold;
+.icon-container i:hover {
   color: #96C422;
+  border-radius: 20px;
   cursor: pointer;
 }
 .img-fluid{
@@ -67,4 +67,29 @@ body {
   font-size: 18px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
+}
+.alert{
+  background-color: #96C422;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+.cart-update{
+  background: #96C422;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.cart-update:hover{
+  background-color: #b8ee2e;
+}
+.cart-remove{
+  background-color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+}
+.cart-remove:hover{
+  background-color: rgb(75, 75, 75);
+  color: white;
 }

@@ -111,7 +111,7 @@ if(isset($_SESSION['customerID'])){
               $productPrice = $row['prod_price'];
               $productImage = $row['prod_image']; 
               echo" <div class='col-lg-6'>
-              <div class='card bg-white py-2 px-4'>
+              <div class='card bg-white py-2 px-4 shadow'>
                 <img class='card-img' src='../admin/product-images/$productImage' alt='$productImage' />
               </div>
               <div class='description d-flex justify-content-around my-2'>
