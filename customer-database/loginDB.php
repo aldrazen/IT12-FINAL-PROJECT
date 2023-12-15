@@ -31,7 +31,7 @@ if (isset($_POST['Username']) && isset($_POST['password'])){
            exit();
     }
   }else{
-    header("location: ../customer/customerHome.php");
+    header("location: ../Main/homepage.php");
      exit();
   }
   ?>

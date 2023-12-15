@@ -13,6 +13,9 @@ function customerHistory(){
 function login(){
   window.location.href='../customer/customerLogin.php';
 }
+function adminLogin(){
+  window.location.href='../admin/adminLogin.php';
+}
 function register(){
   window.location.href='../customer/customerRegister.php';
 }
@@ -33,5 +36,15 @@ function addToCart(productID) {
   }
 }
 
+function loadProductPage() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "addProductPage.php", true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      document.getElementById("main").innerHTML = xhr.responseText;
+    }
+  };
+  xhr.send();
+}
 
 

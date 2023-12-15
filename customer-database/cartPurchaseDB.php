@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Manila');
 include 'connectionDB.php';
 
 session_start();
@@ -50,6 +51,7 @@ if (mysqli_num_rows($check_query) == 0) {
         if (!$clear_cart) {
             echo "Error clearing the cart: " . mysqli_error($connection);
         } else {
+            $udpdate_quantity = mysqli_query($connection,"UPDATE product_tbl SET prod_quantity = prod_quantity - $quantity WHERE prod_ID = $prodID");
             echo "<script> alert('THANK YOU FOR PURCHASING TOPSHELF CO. SHIRT!'); window.location.href = '../customer/customerBag.php';</script>";
         }
     }

@@ -89,7 +89,7 @@
         </div>
       </form>
     </div>
-    <button class="goBack bi bi-arrow-90deg-left rounded-3 px-2 py-1" onclick="goToHome()">
+    <button class="goBack bi bi-arrow-90deg-left rounded-3 px-2 py-1" onclick="login()">
       Return
     </button>
   </div>
@@ -102,7 +102,7 @@
           <h1 class="display-3 text-white">
             FREE SHIPPING ON YOUR FIRST ORDER!
           </h1>
-          <button class="btn sign-up px-5 py-3 w-50">SIGN ME UP!</button>
+
         </div>
         <div class="col-lg-6">
           <h4>You can connect with us through the following:</h4>
@@ -119,7 +119,7 @@
         </div>
       </div>
       <div class="logo-container mt-5 d-flex justify-content-center align-items-center">
-        <img class="footer-logo" src="images/logo-bg.jpg" alt="" />
+        <img class="footer-logo" src="../images/logo-bg.jpg" alt="" />
       </div>
     </div>
   </div>

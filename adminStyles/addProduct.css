@@ -5,6 +5,7 @@
   background-repeat: no-repeat;
   height: 100vh;
 }
+
 .logo{
   height: 150px;
 }
@@ -58,4 +59,7 @@ transition: background-color 0.2s;
 .goBack{
   background-color: #96C422;
   color: black;
+}
+.activee {
+  color: red;
 }

@@ -1,0 +1,18 @@
+body{
+  padding-left: 300px;
+  padding-top: 200px;
+}
+@media (max-width: 768px) {
+
+  /* Styles for small screens */
+  body {
+    padding: 0;
+  }
+}
+h1,th{
+  font-weight: bold;
+  font-family: 'Baskervville', serif;
+}
+.table{
+  font-size: 20px;
+}

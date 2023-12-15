@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2023 at 12:59 PM
+-- Generation Time: Dec 15, 2023 at 09:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `topshelfco`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_tbl`
+--
+
+CREATE TABLE `admin_tbl` (
+  `admin_ID` int(4) NOT NULL,
+  `admin_name` varchar(250) NOT NULL,
+  `admin_username` varchar(250) NOT NULL,
+  `admin_password` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_tbl`
+--
+
+INSERT INTO `admin_tbl` (`admin_ID`, `admin_name`, `admin_username`, `admin_password`) VALUES
+(1, 'Ryann Jay Gudito', 'ryann123', 'password123');
 
 -- --------------------------------------------------------
 
@@ -81,7 +101,11 @@ CREATE TABLE `order_items_tbl` (
 
 INSERT INTO `order_items_tbl` (`item_ID`, `order_ID`, `prod_ID`, `prod_size`, `item_price`, `item_quantity`) VALUES
 (25, 16, 30, 'M', 650.00, 1),
-(26, 16, 29, 'L', 600.00, 1);
+(26, 16, 29, 'L', 600.00, 1),
+(33, 20, 29, 'XL', 600.00, 1),
+(34, 21, 30, 'XL', 1300.00, 2),
+(35, 22, 28, 'L', 650.00, 1),
+(36, 23, 29, 'M', 600.00, 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +126,11 @@ CREATE TABLE `order_tbl` (
 --
 
 INSERT INTO `order_tbl` (`order_ID`, `customer_ID`, `order_date`, `order_status`, `total_price`) VALUES
-(16, 3, '2023-12-12', 'Confirmed', 1250.00);
+(16, 3, '2023-12-12', 'Confirmed', 1250.00),
+(20, 3, '2023-12-15', 'Confirmed', 600.00),
+(21, 3, '2023-12-15', 'Confirmed', 1300.00),
+(22, 3, '2023-12-16', 'Confirmed', 650.00),
+(23, 3, '2023-12-16', 'Confirmed', 600.00);
 
 -- --------------------------------------------------------
 
@@ -154,6 +182,12 @@ INSERT INTO `size_tbl` (`size_ID`, `size_name`) VALUES
 --
 
 --
+-- Indexes for table `admin_tbl`
+--
+ALTER TABLE `admin_tbl`
+  ADD PRIMARY KEY (`admin_ID`);
+
+--
 -- Indexes for table `cart_tbl`
 --
 ALTER TABLE `cart_tbl`
@@ -201,34 +235,40 @@ ALTER TABLE `size_tbl`
 --
 
 --
+-- AUTO_INCREMENT for table `admin_tbl`
+--
+ALTER TABLE `admin_tbl`
+  MODIFY `admin_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `cart_tbl`
 --
 ALTER TABLE `cart_tbl`
-  MODIFY `cart_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `cart_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `customer_tbl`
 --
 ALTER TABLE `customer_tbl`
-  MODIFY `customer_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `customer_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `order_items_tbl`
 --
 ALTER TABLE `order_items_tbl`
-  MODIFY `item_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `item_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `order_tbl`
 --
 ALTER TABLE `order_tbl`
-  MODIFY `order_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `order_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `product_tbl`
 --
 ALTER TABLE `product_tbl`
-  MODIFY `prod_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `prod_ID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `size_tbl`

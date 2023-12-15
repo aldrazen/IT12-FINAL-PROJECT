@@ -54,35 +54,6 @@
     </p>
   </div>
 </body>
-<footer>
-  <div class="container-fluid bg-black">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-lg-6 mb-4">
-          <h1 class="display-3 text-white">
-            FREE SHIPPING ON YOUR FIRST ORDER!
-          </h1>
-          <button class="btn sign-up px-5 py-3 w-50">SIGN ME UP!</button>
-        </div>
-        <div class="col-lg-6">
-          <h4>You can connect with us through the following:</h4>
-          <div class="col-lg bi bi-facebook fs-3 text-white">
-            <a href="https://www.facebook.com/profile.php?id=100092420918245" target="_blank"
-              class="social-media">facebook</a>
-          </div>
-          <div class="col-lg bi bi-instagram fs-3 text-white">
-            <a href="https://www.instagram.com/" target="_blank" class="social-media">instagram</a>
-          </div>
-          <div class="col-lg bi bi-tiktok fs-3 text-white">
-            <a href="https://www.tiktok.com/@topshelfco_" target="_blank" class="social-media">tiktok</a>
-          </div>
-        </div>
-      </div>
-      <div class="logo-container mt-5 d-flex justify-content-center align-items-center">
-        <img class="footer-logo" src="images/logo-bg.jpg" alt="" />
-      </div>
-    </div>
-  </div>
-</footer>
+
 
 </html>

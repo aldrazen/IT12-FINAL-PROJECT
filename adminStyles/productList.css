@@ -1,0 +1,67 @@
+body {
+  background-color: #F4F3F0;
+}
+
+.products {
+  min-height: 50svh;
+}
+
+.ts-logo {
+  height: 120px;
+  border-radius: 10px;
+}
+
+.navbar-toggler {
+  height: 50px;
+}
+
+.productName {
+  font-size: 25px;
+  font-family: 'Anton', sans-serif;
+  color: rgb(177, 176, 176);
+}
+
+.productdPrice {
+  font-size: 23px;
+  font-family: 'Anton', sans-serif;
+}
+
+.size {
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.btn-size {
+  border: 2px solid black;
+  font-size: 11px;
+  font-family: 'Baskervville', serif;
+  font-weight: bold;
+}
+
+.btn-size:hover {
+  background-color: #96C422;
+  border: 2px solid black;
+}
+
+.btn-size:focus {
+  background-color: #96C422;
+  border: 2px solid black;
+}
+
+.btn-add {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Baskervville', serif;
+}
+
+.btn-add:hover {
+  background-color: #96C422;
+  color: black;
+}
+.activee{
+  color: #c0fa2e;
+}
+footer {
+  margin-top: 130px;
+}
